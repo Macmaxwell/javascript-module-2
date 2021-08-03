@@ -20,11 +20,19 @@ body {
 	padding-top: 2em;
 	padding-bottom: 2em;
 }
+.site-filter {
+	background-color: red;
+
+
+
+}
 
 .navbar-brand > img {
 	max-height: 40px;
 	width: auto;
 }
+
+
 
 .navbar-light .navbar-nav .nav-link {
 	color: #292b2c;
@@ -66,6 +74,7 @@ body {
 .jumbotron {
 	border-radius: 0;
 }
+#jumbotron
 
 /* Headings */
 .heading-underline {
