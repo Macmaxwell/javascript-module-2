@@ -15,6 +15,12 @@
  */
 function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
+
+  arrayOfPeople.foreach(person => {
+    const {name,job} = person
+    content.appendChild(document.createElement("h1")).textContent = person.name
+    content.appendChild(document.createElement("h2")).textContent = person.job
+  });
 }
 
 /**
@@ -24,9 +30,19 @@ function exerciseOne(arrayOfPeople) {
  * All of your HTML should go inside the Div tag with the id "content".
  *
  */
-function exerciseTwo(shopping) {
+function exerciseTwo(shoppingItems) {
   //Write your code in here
-}
+  const content = document.querySelector("#content");
+  const listEl = document.createElement("ul")
+  content.appendChild(listEl)
+
+  shoppingItems.foreach(item => {
+    const itemEl = document.createElement("li")
+    itemEl.textContent = item
+    listEl.appendChild(itemEl)
+  })
+
+  }
 
 /**
     I'd like to display my three favorite books inside a nice webpage!
@@ -58,7 +74,7 @@ function exerciseTwo(shopping) {
     The end result should look something like this: https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 **/
 function exerciseThree(books) {
-  //Write your code in here
+ //Write your code in here
 }
 
 //

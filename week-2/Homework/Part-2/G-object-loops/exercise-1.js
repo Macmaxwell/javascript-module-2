@@ -7,6 +7,11 @@ const studentGrades = {
     george: 17,
     abdul: 19,
   };
+
+ Object.entries(studentGrades).forEach(entry => {
+   let [name,grade] = entry
+   if (grade > 18) console.log(name.toUpperCase()+ " - " + grade)
+ })
   
   // Prints
   // TOM - 20
