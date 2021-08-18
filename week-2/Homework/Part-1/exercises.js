@@ -15,11 +15,11 @@
  */
 function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
-
-  arrayOfPeople.foreach(person => {
+//console.log(arrayOfPeople);
+  arrayOfPeople.forEach(person => {
     const {name,job} = person
-    content.appendChild(document.createElement("h1")).textContent = person.name
-    content.appendChild(document.createElement("h2")).textContent = person.job
+    content.appendChild(document.createElement("h1")).textContent = name
+    content.appendChild(document.createElement("h2")).textContent = job
   });
 }
 
@@ -36,7 +36,7 @@ function exerciseTwo(shoppingItems) {
   const listEl = document.createElement("ul")
   content.appendChild(listEl)
 
-  shoppingItems.foreach(item => {
+  shoppingItems.forEach(item => {
     const itemEl = document.createElement("li")
     itemEl.textContent = item
     listEl.appendChild(itemEl)
@@ -75,7 +75,34 @@ function exerciseTwo(shoppingItems) {
 **/
 function exerciseThree(books) {
  //Write your code in here
+ let list = document.createElement("ul");
+ list.classList.add("book-cards")
+ books.forEach(book => {
+   let aBook = document.createElement("p")
+   aBook.textContent = book.title + " - " + book.author
+
+   let listItem = document.createElement("li");
+   listItem.classList.add("book-card")
+   listItem.appendChild(aBook)
+   list.appendChild(listItem)
+   document.body.appendChild(list)
+
+   let bookImg = document.createElement("img")
+   bookImg.classList.add("book-img")
+   bookImg.src = book.bookCover;
+
+
+   listItem.appendChild(bookImg)
+
+
+   if(book.alreadyRead === true) {
+     listItem.style.backgroundColor = "green"
+   } else {
+     listItem.style.backgroundColor = "tomato"
+   }
+ });
 }
+
 
 //
 //
