@@ -59,6 +59,58 @@ var movies = [
 ];
 
 // create showMovies function
+function showMovies() {
+  movies.forEach(movie => {
+    showMovie(movie)
+  })
+  showCountMovies()
+}
+function showMovie(movie){
+  const movieP = document.createElement("p");
+    movieP.textContent = movie.title + " - " + movie.director;
+    const movieDiv = document.getElementById("all-movies");
+    movieDiv.appendChild(movieP)
+}
+function showCountMovies(){
+  let movieSpan = document.getElementById("movies-number")
+  movieSpan.innerText = movies.length;
+}
+function addMovie(movie) {
+  movies.push(movie)
+  showMovie(movie) 
+  showCountMovies()
+ }
+
+const myMovie = {
+  title: "Cinema Paradiso",
+  director: "Giuseppe Tornatore",
+  type: "drama",
+  haveWatched: true
+}
+setTimeout(showMovies , 1000);
+setTimeout(()=>addMovie(myMovie), 2000)
+
+
+const movieForm = document.getElementById("movieForm");
+
+movieForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+  const movieTitle = document.getElementById("movieTitle");
+  const movieDirector = document.getElementById("movieDirector");
+  const movieType = document.getElementById("movieType");
+  const movieSeen = document.getElementById("movieSeen");
+  let newMovie = {
+    title: movieTitle.value,
+    director: movieDirector.value,
+    type: movieType.value,
+    haveWatched: movieSeen.value
+  }
+  addMovie(newMovie)
+  movieTitle.value = "";
+movieDirector.value = "";
+movieType.value = "";
+movieSeen.value = "";
+})
 
 
 // create a new movie object for your favorite movie
